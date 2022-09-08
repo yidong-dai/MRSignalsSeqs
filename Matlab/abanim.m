@@ -1,9 +1,7 @@
 %
-%	function M = abanim(M,n,A,B)
+%	function M = abanim(M,n,A,B), % yd, function name means that: a/b matrix/vector animation
 %
-%	Animate a propagation of the form M'=A*M+B, where
-%	A and B are assumed to be rotations and relaxation that occur
-%	continuously across the animation interval.
+%	Animate a propagation of the form M'=A*M+B
 %
 function M = abanim(M,n,A,B)
 

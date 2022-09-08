@@ -13,6 +13,10 @@ if (nargin < 3) B=[0;0;0]; end;
 
 Ai = A^(1/n);	% Multiplications are just nth root
 
+% yd, by breaking down the nested calculation for smaller-steps:
+% M'=...Ai(Ai(Ai(Ai*M+Bi)+Bi)+Bi)+Bi...
+% And matrix geometric progression sum follows the same equation
+
 Aprop = inv(eye(3)-Ai)* (eye(3)-Ai^n);	% Series formula for sum A^k
 Bi = inv(Aprop)*B;
 
