@@ -7,4 +7,4 @@
 function im = ft(dat)
 
 im = fftshift(fft2(fftshift(dat)));
-
+% im= fft2(dat);
