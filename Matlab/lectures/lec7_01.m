@@ -3,12 +3,14 @@
 % 
 % Calculate noise in k-space, image space, then take magnitudes
 %
-nsig = 1;	% Noise sigma parameter (real and imaginary)
+nsig = 2;	% Noise standard deviation/sigma (real and imaginary seperately)
+nmean = 0;   % Noise expected value
+
 N = 256;	% Image/k-space size.
 
-kr = randn([N,N])*nsig;		% Generate gaussian noise (real part)
-ki = randn([N,N])*nsig;		% Generate gaussian noise (imag part, same)
-k = kr+i*ki;			% Combine
+kr = randn([N,N])*nsig + nmean;		% Generate gaussian noise (real part)
+ki = randn([N,N])*nsig + nmean;		% Generate gaussian noise (imag part, same)
+k = kr+1i*ki;			% Combine
 
 tt=sprintf('Std.Dev of noise in k-space is %g (real) and %g (imag)', ...
 	std(kr(:)),std(ki(:)));
